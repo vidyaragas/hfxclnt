@@ -6,8 +6,6 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
 import com.ajna.hfxclnt.MainApp;
-import com.ajna.riskman.md.MarketDataClientInterface;
-import com.ajna.riskman.md.MarketDataGW;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;

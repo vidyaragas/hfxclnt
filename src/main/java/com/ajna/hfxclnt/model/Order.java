@@ -50,6 +50,17 @@ public class Order {
 	 this.symbol = symbol;
 	}
 	
+	//use this for cancel order
+	
+	public Order(String ordID, String mUserId, int qty, String symb) {
+		 super();
+		 this.orderID = ordID;
+		 this.userID = mUserId;
+		 this.quantity = qty;
+		 this.symbol = symb;
+		 
+	}
+	
 	public ByteBuffer getHfxString(int type) {
  	
 		/**
@@ -110,6 +121,8 @@ public class Order {
 		 
 		return sendMsg ;
 	}
+	
+
 	
 	public Order(String orderID, Date createdDate, String symbol, int quantity, String side, double price, String optType,
 			Date expiryDate, double strike) {
@@ -220,6 +233,7 @@ public class Order {
 		//System.out.println("11. Position: " + bb.position() + ", Limit: " + bb.limit() + ", remaining: " + bb.remaining());
 		this.openQty = bb.getInt();
 		this.accumFills = this.quantity - this.openQty;
+		
 		//System.out.println("openQty: " + openQty);
 		//System.out.println("12. Position: " + bb.position() + ", Limit: " + bb.limit() + ", remaining: " + bb.remaining());
 		byte[] bytes7 = new byte[16];
@@ -240,7 +254,8 @@ public class Order {
 		//System.out.println("Integer at 89: " + bb.getInt(89) );
 	}	
 	
-	
+
+
 	public int getAccumFills() {
 		return accumFills;
 	}

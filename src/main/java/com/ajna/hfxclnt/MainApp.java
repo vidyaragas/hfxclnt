@@ -23,8 +23,6 @@ import java.util.Vector;
 import com.ajna.hfxclnt.connection.HfxClient;
 import com.ajna.hfxclnt.connection.HfxResponseInterface;
 import com.ajna.riskman.dao.DaoController;
-import com.ajna.riskman.md.MarketDataClientInterface;
-import com.ajna.riskman.md.MarketDataGW;
 import com.ajna.hfxclnt.model.HfxMessage;
 import com.ajna.hfxclnt.model.Order;
 import com.ajna.riskman.ui.OrderTableModel;
@@ -333,9 +331,13 @@ public class MainApp extends Application implements HfxResponseInterface {
 		mi1.setOnAction((ActionEvent event) -> {
 		    OrderTableModel item = (OrderTableModel) tableView.getSelectionModel().getSelectedItem();
 		    System.out.println("Selected item: " + item.getOid());
+		     
+			Order ord2send = new  Order( item.getOid(),  mUserId, item.getOpenQty(), item.getSymbol());
+			
+			ByteBuffer bb = ord2send.getHfxString(HfxMessage.HFX_MSGTYP_CXL_ORDER_REQUEST);
+					
+			mHfxConnection.sendMessage(bb);
 		    
-		    //Thread th = new Thread(() -> updateOrderTableView());
-			//th.start();
 		});
 
 		ContextMenu menu = new ContextMenu();
