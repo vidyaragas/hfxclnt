@@ -232,7 +232,9 @@ public class MainApp extends Application implements HfxResponseInterface {
 			otm.setStatus(ord.getStatus());
 			otm.setFilledQty(ord.getFilledQty());
 			otm.setOpenQty(ord.getOpenQty());
-			otm.setAccumFills(ord.getAccumFills());
+			if(ord.getStatus().trim().equalsIgnoreCase("Filled"))
+				otm.setAccumFills(ord.getAccumFills());
+			 
 			
 		} else {
 			otm = new OrderTableModel(ord.getOrderID(), ord.getSymbol(),ord.getQuantity(), ord.getSide(), ord.getPrice(), ord.getOpenQty(), ord.getFilledQty(), ord.getAccumFills(), ord.getStatus());

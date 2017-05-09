@@ -232,14 +232,18 @@ public class Order {
 		//System.out.println("filledQty: " + filledQty);
 		//System.out.println("11. Position: " + bb.position() + ", Limit: " + bb.limit() + ", remaining: " + bb.remaining());
 		this.openQty = bb.getInt();
-		this.accumFills = this.quantity - this.openQty;
+		
 		
 		//System.out.println("openQty: " + openQty);
 		//System.out.println("12. Position: " + bb.position() + ", Limit: " + bb.limit() + ", remaining: " + bb.remaining());
 		byte[] bytes7 = new byte[16];
 		bb.get(bytes7);//, 74, 16);
 		this.status = new String(bytes7);
-		//System.out.println("status: " + status);
+		 
+		this.accumFills = this.quantity - this.openQty;	
+		 
+		
+		
 		
 		//System.out.println("Integer at 79: " + bb.getInt(79) );
 		//System.out.println("Integer at 80: " + bb.getInt(80) );
