@@ -3,6 +3,7 @@ package com.ajna.riskman.pricing;
  
 public class BlackScholes {
 
+	
 	// The Abramowitz & Stegun (1964) numerical approximation
 	// below uses six constant values in its formula.
 	private static final double P = 0.2316419;
@@ -124,7 +125,7 @@ public class BlackScholes {
 	/**
 	 * The Abramowitz & Stegun numerical approximation above uses six constant
 	 * values in its formula. However it also relies on another function in turn
-	 * – the standard normal probability density function (PDF)
+	 * â€“ the standard normal probability density function (PDF)
 	 * 
 	 * @param x
 	 * @return
